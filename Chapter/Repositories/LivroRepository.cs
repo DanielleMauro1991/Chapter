@@ -16,5 +16,10 @@ namespace Chapter.Repositories
         {
             return _context.Livros.ToList();
         }
+        public Livro BuscarPorId(int id)
+        {
+            return _context.Livros.Find(id);
+
+        }
     }
 }

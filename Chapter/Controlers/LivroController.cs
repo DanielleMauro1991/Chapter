@@ -1,4 +1,5 @@
-﻿using Chapter.Repositories;
+﻿using Chapter.Models;
+using Chapter.Repositories;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
@@ -26,5 +27,24 @@ namespace Chapter.Controlers
             }
         }
 
+        [HttpGet("{id}")]
+
+        public IActionResult BuscarPorId(int id) {
+            try
+            {
+                Livro livro = _livroRepository.BuscarPorId(id);
+
+                if (livro == null)
+                {
+                    return NotFound();
+                }
+                return Ok(livro);
+            }
+            catch (Exception e)
+            {
+
+                throw new Exception(e.Message);
+            }
+        }
     }
 }

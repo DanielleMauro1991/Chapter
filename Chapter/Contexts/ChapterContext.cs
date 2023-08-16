@@ -17,7 +17,7 @@ namespace Chapter.Contests
            if (!optionsBuilder.IsConfigured)
             {
                 //Cada computador possui seu próprio caminho e sintaxe
-                optionsBuilder.UseSqlServer("Data Source = DESKTOP-8MJ680J\\SQLEXPRESS ; initial catalog = Chapter; Integrated Security = true");
+                optionsBuilder.UseSqlServer("Data Source = DESKTOP-8MJ680J\\SQLEXPRESS ; initial catalog = Chapter; Integrated Security = true; TrustServerCertificate = true");
 
                 //Caso nao seja ID Microsoft:Data Source = DESKTOP-8MJ680J\\SQLEXPRESS ; initial catalog = Chapter; Integrated Security = banana; password = nanica123            
             }
