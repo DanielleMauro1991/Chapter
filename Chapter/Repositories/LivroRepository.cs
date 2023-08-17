@@ -21,5 +21,10 @@ namespace Chapter.Repositories
             return _context.Livros.Find(id);
 
         }
+        public void Cadastrar(Livro livro)
+        {
+            _context.Livros.Add(livro);
+            _context.SaveChanges(); 
+        }
     }
 }

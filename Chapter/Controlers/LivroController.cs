@@ -43,7 +43,25 @@ namespace Chapter.Controlers
             catch (Exception e)
             {
 
-                throw new Exception(e.Message);
+                throw;
+            }
+        }
+
+        [HttpPost]
+
+        public IActionResult Cadastrar (Livro livro)
+        {
+            try
+            {
+                _livroRepository.Cadastrar(livro);
+
+                return StatusCode(201);
+                
+            }
+            catch (Exception)
+            {
+
+                throw;
             }
         }
     }
