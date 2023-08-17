@@ -24,15 +24,16 @@ namespace Chapter.Repositories
         public void Cadastrar(Livro livro)
         {
             _context.Livros.Add(livro);
-            _context.SaveChanges(); 
+            _context.SaveChanges();
         }
-    
-        public void Atualizar (int id, Livro livro)
+
+        public void Atualizar(int id, Livro livro)
         {
             Livro livrobuscado = _context.Livros.Find(id);
 
-            if (livrobuscado != null) {
-                
+            if (livrobuscado != null)
+            {
+
                 livrobuscado.Titulo = livro.Titulo;
                 livrobuscado.QuantidadePaginas = livro.QuantidadePaginas;
                 livrobuscado.Disponivel = livro.Disponivel;
@@ -42,6 +43,13 @@ namespace Chapter.Repositories
             _context.Livros.Update(livrobuscado);
             _context.SaveChanges();
         }
-    }
 
-}
+        public void Deletar(int id)
+        {
+
+            Livro livro = _context.Livros.Find(id);
+            _context.Livros.Remove(livro);
+            _context.SaveChanges();
+        }
+    } 
+    }

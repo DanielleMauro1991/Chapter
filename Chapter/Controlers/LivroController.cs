@@ -82,5 +82,25 @@ namespace Chapter.Controlers
                 throw;
             }
         }
+
+        [HttpDelete("{id}")]
+
+        public IActionResult Deletar (int id)
+        {
+            try
+            {
+                _livroRepository.Deletar(id);
+
+                return StatusCode(204);
+
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+        }
+
+
     }
 }
