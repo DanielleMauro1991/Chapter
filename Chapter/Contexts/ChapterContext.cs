@@ -25,5 +25,8 @@ namespace Chapter.Contests
 
         public DbSet<Livro> Livros { get; set; }
 
+        public DbSet<Usuario> Usuarios { get; set; }
+
     }
+
 }
