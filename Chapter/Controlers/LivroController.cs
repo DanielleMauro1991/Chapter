@@ -64,5 +64,23 @@ namespace Chapter.Controlers
                 throw;
             }
         }
+
+        [HttpPut("{id}")]
+
+        public IActionResult Atualizar (int id,Livro livro)
+        {
+            try
+            {
+                _livroRepository.Atualizar (id,livro);
+
+                return StatusCode(204);
+
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+        }
     }
 }
