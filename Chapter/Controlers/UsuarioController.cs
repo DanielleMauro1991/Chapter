@@ -1,7 +1,9 @@
 ﻿using Chapter.Interfaces;
+using Chapter.Models;
 using Chapter.Repositories;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.Identity.Client;
 
 namespace Chapter.Controlers
 {
@@ -11,7 +13,7 @@ namespace Chapter.Controlers
     public class UsuarioController : ControllerBase
     {
         private readonly IUsuarioRepository _iusuarioRepository;
-        public UsuarioController (IUsuarioRepository usuarioRepository)
+        public UsuarioController(IUsuarioRepository usuarioRepository)
         {
             _iusuarioRepository = usuarioRepository;
         }
@@ -30,5 +32,34 @@ namespace Chapter.Controlers
             }
         }
 
+            [HttpGet("{id}")]
+
+             public IActionResult BuscarPorId(int id)
+            {
+                try
+                {
+                    Usuario usuario = _iusuarioRepository.BuscarPorId(id);
+
+                    if (usuario == null)
+                    {
+                        return NotFound();
+                    }
+                    return Ok(usuario);
+                }
+                catch (Exception e)
+                {
+
+                    throw;
+                }
+            }
+
+
+        }
+
     }
-}
+
+
+
+
+    
+
